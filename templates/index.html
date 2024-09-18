@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Live Video Feed</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            .container {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: center;
+                height: 100vh;
+                padding: 20px;
+            }
+            .video-container {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 20px;
+            }
+            .text-container {
+                flex: 1;
+                max-width: 50%;
+            }
+            img {
+                width: 100%;
+                height: auto;
+            }
+            form {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="video-container">
+                <img src="/video_feed" alt="Live Video Feed">
+            </div>
+            <div class="text-container">
+                <h1>Live Video Feed</h1>
+                <p style="color: {{ g.tampering }}; font-size: 36px; font-weight: bold;">{{tampering}}</p>
+                <p style="color: {{ g.flash }}; font-size: 36px; font-weight: bold;">{{flash}}</p>
+                <p style="color: #4CAF50;">NAME: {{name}}</p>
+                <h1>Upload Video</h1>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="video" accept=".mp4,.avi,.mov">
+                    <input type="submit" value="Upload">
+                </form>
+            </div>
+        </div>
+    </body>
+    </html>
+
+
